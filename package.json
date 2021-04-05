@@ -1,0 +1,23 @@
+{
+  "name": "php_ecommerce_demo",
+  "version": "1.0.0",
+  "description": "php ecommerce demo for my portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.6.1",
+    "laravel-elixir": "^6.0.0-18"
+  },
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.5.1",
+    "mdb-ui-kit": "^3.4.0",
+    "mdbootstrap": "^4.19.2",
+    "popper.js": "^1.16.1",
+    "slick-carousel": "^1.8.1"
+  }
+}
