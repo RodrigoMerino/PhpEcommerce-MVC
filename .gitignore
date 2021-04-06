@@ -4,4 +4,4 @@ node_modules/
 logs/
 #keys
 Config/Config.php
-.env
+.env 

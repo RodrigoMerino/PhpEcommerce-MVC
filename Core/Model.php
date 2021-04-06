@@ -3,21 +3,28 @@
 namespace Core;
  use PDO;
  use App\Config\Config;
+ use Illuminate\Database\Capsule\Manager as Capsule;
  
-abstract class Model
+ abstract class Model
 {
-    protected static function getDB()
+    public function __construct()
     {
-        static $db = null;
+        $db = new Capsule;
+        $db->addConnection([
+            'driver' => getenv('APP_DRIVER'),
+            'host' => getenv('APP_HOST'),
+            'host' => getenv('APP_HOST'),
+            'username' => getenv('APP_USER'),
+            'username' => getenv('APP_USER'),
+            'username' => getenv('APP_USER'),
+            'username' => getenv('APP_USER'),
+            'collation' => getenv('utf8_unicode_ci'),
 
-        if ($db === null) {
-            $dsn = 'mysql:host=' . Config::DB_HOST . ';dbname=' . Config::DB_NAME . ';charset=utf8';
-            $db = new PDO($dsn, Config::DB_USER, Config::DB_PASSWORD);
 
-            // Throw an Exception when an error occurs
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        }
+        ]);
+        $db->setAsGlobal();
+        $db->bootEloquent();
 
-        return $db;
     }
+
 }
