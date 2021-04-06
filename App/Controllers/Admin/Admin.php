@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Helpers\Request;
 use \Core\View;
 use \Core\SessionHandler;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 class Admin extends \Core\Controller
 {
@@ -17,8 +18,12 @@ class Admin extends \Core\Controller
         } else {
             $data = 'session name not defined';
         }
+        $user = Capsule::table('users')->where('id',1)->first();
+var_dump($user);
+$appName = getenv('APP_URL');
+var_dump($appName);
         View::bladeRenderTemplate('admin/index', [
-            'admin' => $data
+            'admin' => $user
 
         ]);
     }
