@@ -4,7 +4,7 @@
 
 
 <!-- Default form login -->
-<form class="text-center border border-light p-5" action="http://localhost:8080/phpEcommerce/public/admin/admin/get" method="POST">
+<form class="text-center border border-light p-5" action="/admin/admin/get" method="POST">
 
     <p class="h4 mb-4">Sign in</p>
 
@@ -51,4 +51,4 @@
 <?php echo e('APP_URL'); ?>
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('admin.includes.base', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('includes.base', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

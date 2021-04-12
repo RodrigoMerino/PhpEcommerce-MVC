@@ -5,58 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - @yield('title') </title>
+    <title>Admin Panel - <?php echo $__env->yieldContent('title'); ?> </title>
+    <link rel="stylesheet" href="../../css/build.css">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
-    <link rel="stylesheet" href="../..//css/build.css">
-<style>
-  
- #wrapper {
-    overflow-x: hidden;
- }
-
-#sidebar-wrapper {
-  min-height: 100vh;
-  margin-left: -15rem;
-  -webkit-transition: margin .25s ease-out;
-  -moz-transition: margin .25s ease-out;
-  -o-transition: margin .25s ease-out;
-  transition: margin .25s ease-out;
-}
-
-#sidebar-wrapper .sidebar-heading {
-  padding: 0.875rem 1.25rem;
-  font-size: 1.2rem;
-}
-
-#sidebar-wrapper .list-group {
-  width: 15rem;
-}
-
-#page-content-wrapper {
-  min-width: 100vw;
-}
-
-#wrapper.toggled #sidebar-wrapper {
-  margin-left: 0;
-}
-
-@media (min-width: 768px) {
-  #sidebar-wrapper {
-    margin-left: 0;
-  }
-
-  #page-content-wrapper {
-    min-width: 0;
-    width: 100%;
-  }
-
-  #wrapper.toggled #sidebar-wrapper {
-    margin-left: -15rem;
-  }
-}
-</style>
 
 </head>
 <body>
@@ -67,14 +20,15 @@
     <div class=" border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Start Bootstrap </div>
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action ">Dashboard</a>
-        <a href="#" class="list-group-item list-group-item-action ">Shortcuts</a>
-        <a href="#" class="list-group-item list-group-item-action ">Overview</a>
+        <a href="index" class="list-group-item list-group-item-action ">Dashboard</a>
+        <a href="categories" class="list-group-item list-group-item-action "><i class="far fa-window-restore" > </i>&nbsp; Categorias</a>
+        <a href="#" class="list-group-item list-group-item-action ">Overview &nbsp;</a>
         <a href="#" class="list-group-item list-group-item-action ">Events</a>
         <a href="#" class="list-group-item list-group-item-action ">Profile</a>
         <a href="#" class="list-group-item list-group-item-action ">Status</a>
       </div>
     </div>
+    
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
@@ -86,10 +40,7 @@
       
 <!--Navbar -->
   <a class="navbar-brand" href="#">Navbar</a>
-  {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
-    aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button> --}}
+  
   <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -107,6 +58,7 @@
     <ul class="navbar-nav ml-auto nav-flex-icons">
       <li class="nav-item avatar">
         <a class="nav-link p-0" href="#">
+          <link rel="stylesheet" href="">
           <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
             alt="avatar image" height="35">
         </a>
@@ -117,7 +69,7 @@
       </nav>
 
       <div class="container-fluid">
-      @yield('content')
+      <?php echo $__env->yieldContent('content'); ?>
     </div>
     <!-- /#page-content-wrapper -->
 
@@ -132,15 +84,16 @@
 
      <!-- /#wrapper -->
 </body>
+</html>
+<!-- JQuery -->
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 </script>
-{{-- <script src="../../js/build.js"></script> --}}
+
 <script>
   $("#menu-toggle").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
   });
 </script>
-</html>
-<!-- JQuery -->

@@ -28,7 +28,13 @@ mix.scripts(
     './node_modules/bootstrap/dist/js/bootstrap.min.js',
 
     //slick coruousel
-    './node_modules/slick-carousel/slick/slick.min.js'
+    './node_modules/slick-carousel/slick/slick.min.js',
+
+    
+    //compile all
+    'js/*.js',
+
+
 
 ],'public/js/build.js','resources/assets');
 

@@ -14,43 +14,27 @@ class Router
     public function add($route, $params = [])
     {
 
-         // Convert the route to a regular expression: escape forward slashes
-         $route = preg_replace('/\//', '\\/', $route);
+        // Convert the route to a regular expression: escape forward slashes
+        $route = preg_replace('/\//', '\\/', $route);
 
-         // Convert variables e.g. {controller}
-         $route = preg_replace('/\{([a-z]+)\}/', '(?P<\1>[a-z-]+)', $route);
- 
-         // Convert variables with custom regular expressions e.g. {id:\d+}
-         $route = preg_replace('/\{([a-z]+):([^\}]+)\}/', '(?P<\1>\2)', $route);
- 
-         // Add start and end delimiters, and case insensitive flag
-         $route = '/^' . $route . '$/i';
- 
-         $this->routes[$route] = $params;
-     
+        // Convert variables e.g. {controller}
+        $route = preg_replace('/\{([a-z]+)\}/', '(?P<\1>[a-z-]+)', $route);
+
+        // Convert variables with custom regular expressions e.g. {id:\d+}
+        $route = preg_replace('/\{([a-z]+):([^\}]+)\}/', '(?P<\1>\2)', $route);
+
+        // Add start and end delimiters, and case insensitive flag
+        $route = '/^' . $route . '$/i';
+
+        $this->routes[$route] = $params;
     }
 
 
-    // public function match($url){
-
-    //     foreach ($this->routes as $route => $params) {
-    //         if ($url == $route) {
-    //             $this->params = $params;
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-
-    // }
-    
 
     public function match($url)
     {
-    //$reg_exp = "/^(?P<controller>[a-z-]+)\/(?P<action>[a-z-]+)/";
         foreach ($this->routes as $route => $params) {
             if (preg_match($route, $url, $matches)) {
-                // Get named capture group values
-             //   $params = [];
                 foreach ($matches as $key => $match) {
                     if (is_string($key)) {
                         $params[$key] = $match;
@@ -95,7 +79,6 @@ class Router
 
                 if (is_callable([$controller_object, $action])) {
                     $controller_object->$action();
-
                 } else {
                     throw new \Exception("Method $action (in controller $controller) not found");
                 }
@@ -104,7 +87,6 @@ class Router
             }
         } else {
             throw new \Exception('No route matched.', 404);
-          
         }
     }
 
@@ -149,16 +131,15 @@ class Router
         return $url;
     }
 
-   
+
     protected function getNamespace()
     {
         $namespace = 'App\Controllers\\';
-//para acceder a subdirectorios de controlladores
+        //para acceder a subdirectorios de controlladores
         if (array_key_exists('namespace', $this->params)) {
             $namespace .= $this->params['namespace'] . '\\';
         }
 
         return $namespace;
     }
-
 }

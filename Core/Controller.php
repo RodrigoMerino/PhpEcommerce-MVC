@@ -6,7 +6,7 @@ abstract class Controller
 {
     protected $route_params = [];
 
-// pasar los parametros de la route cuando creamos un object
+    // pasar los parametros de la route cuando creamos un object
     public function __construct($route_params)
     {
         $this->route_params = $route_params;
@@ -45,5 +45,4 @@ abstract class Controller
     protected function after()
     {
     }
-    
 }

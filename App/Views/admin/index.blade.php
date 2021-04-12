@@ -1,4 +1,4 @@
-@extends('admin.includes.base')
+@extends('includes.base')
 
 @section('content')
     <div>
@@ -6,7 +6,7 @@
 {{-- {{\App\Helpers\Redirect::to('')}} --}}
 
 <!-- Default form login -->
-<form class="text-center border border-light p-5" action="http://localhost:8080/phpEcommerce/public/admin/admin/get" method="POST">
+<form class="text-center border border-light p-5" action="/admin/admin/get" method="POST">
 
     <p class="h4 mb-4">Sign in</p>
 

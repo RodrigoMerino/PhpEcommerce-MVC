@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Helpers\Request;
+use App\Models\Category;
 use \Core\View;
 use \Core\SessionHandler;
 use Illuminate\Database\Capsule\Manager as Capsule;
@@ -18,31 +19,33 @@ class Admin extends \Core\Controller
         } else {
             $data = 'session name not defined';
         }
-        $user = Capsule::table('users')->where('id',1)->first();
-var_dump($user);
-$appName = getenv('APP_URL');
-var_dump($appName);
         View::bladeRenderTemplate('admin/index', [
-            'admin' => $user
+            "data" => $data
 
         ]);
     }
-    public function getAction()
+    public function categoriesAction()
     {
+        $categories= Category::all();
+        // $user = Capsule::table('users')->where('id',1)->first();
+        // var_dump($categories);
        // Request::refreshData();
-        echo '<pre>';
-        $data = Request::returnData('post', '');
-        var_dump($data);
+        // echo '<pre>';
+        // $data = Request::returnData('post', '');
+        // var_dump($data);
 
-        //         if (Request::hasData('post')) {
-        //         $request  =Request::getSingleData('post');
-        // var_dump($request->email) ;
-        //         }
-        // else{
-        //     echo 'data does not exists';
-        // }
-        //         // var_dump(Request::getAll());
+        // //         if (Request::hasData('post')) {
+        // //         $request  =Request::getSingleData('post');
+        // // var_dump($request->email) ;
+        // //         }
+        // // else{
+        // //     echo 'data does not exists';
+        // // }
+        // //         // var_dump(Request::getAll());
 
         echo '</pre>';
+        View::bladeRenderTemplate('admin/products/products', compact('categories'));
+
     }
+
 }

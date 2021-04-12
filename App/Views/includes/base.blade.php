@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - <?php echo $__env->yieldContent('title'); ?> </title>
+    <title>Admin Panel - @yield('title') </title>
     <link rel="stylesheet" href="../../css/build.css">
 
     <!-- Font Awesome -->
@@ -37,10 +37,16 @@
       <nav class="mb-1 navbar navbar-expand-lg navbar-dark blue-gradient ">
         
         <button class="blue-gradient color-block mb-3 mx-auto rounded-circle z-depth-1" id="menu-toggle"><i class="fas fa-bars"></i></button>
-      
+      {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+    aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> --}}
 <!--Navbar -->
   <a class="navbar-brand" href="#">Navbar</a>
-  
+  {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+    aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> --}}
   <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -69,7 +75,7 @@
       </nav>
 
       <div class="container-fluid">
-      <?php echo $__env->yieldContent('content'); ?>
+      @yield('content')
     </div>
     <!-- /#page-content-wrapper -->
 
@@ -90,7 +96,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 </script>
-
+{{-- <script src="../../js/build.js"></script> --}}
 <script>
   $("#menu-toggle").click(function(e) {
     e.preventDefault();
