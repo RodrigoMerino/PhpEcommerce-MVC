@@ -6,10 +6,18 @@ use App\Helpers\Request;
 use App\Models\Category;
 use \Core\View;
 use \Core\SessionHandler;
-use Illuminate\Database\Capsule\Manager as Capsule;
-
+use \App\Services\CategoryService;
 class Admin extends \Core\Controller
 {
+    protected  $_categoryService;
+    
+    public function __construct()
+    {
+
+        $this->_categoryService =  new CategoryService;
+    }
+
+
     public function indexAction()
     {
         SessionHandler::addSession('admin', 'some testing sessionsaaa');
@@ -24,28 +32,35 @@ class Admin extends \Core\Controller
 
         ]);
     }
+
+
     public function categoriesAction()
     {
-        $categories= Category::all();
-        // $user = Capsule::table('users')->where('id',1)->first();
-        // var_dump($categories);
-       // Request::refreshData();
-        // echo '<pre>';
-        // $data = Request::returnData('post', '');
-        // var_dump($data);
 
-        // //         if (Request::hasData('post')) {
-        // //         $request  =Request::getSingleData('post');
-        // // var_dump($request->email) ;
-        // //         }
-        // // else{
-        // //     echo 'data does not exists';
-        // // }
-        // //         // var_dump(Request::getAll());
+        //$categories = Category::all();
+        try {
+            $categories = $this->_categoryService->getAllCategory();
+        
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
 
-        echo '</pre>';
         View::bladeRenderTemplate('admin/products/products', compact('categories'));
-
     }
 
+    public function createCategory()
+    {
+        if (Request::hasData('post')) {
+
+            $request = Request::getData('post');
+            Category::create([
+                'name' => $request->category,
+
+            ]);
+        }
+        echo '<pre>';
+
+        var_dump($request->category);
+        echo '</pre>';
+    }
 }

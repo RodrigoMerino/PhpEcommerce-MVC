@@ -16,7 +16,7 @@ class Request
     }
 
     //return data we specified
-    public static function getSingleData(string $key)
+    public static function getData(string $key)
     {
         $object = new static;
         $data = $object->getAll();
