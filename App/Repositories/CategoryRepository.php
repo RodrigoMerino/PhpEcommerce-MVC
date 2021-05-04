@@ -27,8 +27,8 @@ class CategoryRepository
     public function createCategory($request)
     {
         Category::create([
-            'name' => $request->category,
-            'format_name' => formattedString($request->category) ,
+            'name' => $request->name,
+            'format_name' => formattedString($request->name) ,
 
         ]);
     }

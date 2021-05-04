@@ -24,7 +24,7 @@
             </div>
 
             <div class="col col-md-5  my-1">
-                <input type="text" class="form-control" name="category" placeholder="Crear categoria">
+                <input type="text" class="form-control" name="name" placeholder="Crear categoria">
 
             </div>
             <div class="col-auto md-1">

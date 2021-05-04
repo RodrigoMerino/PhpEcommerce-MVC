@@ -39,12 +39,8 @@ class Admin extends \Core\Controller
     {
 
         //$categories = Category::all();
-        try {
-            $categories = $this->_categoryService->getAllCategory();
-        
-        } catch (\Throwable $th) {
-            //throw $th;
-        }
+        $categories = $this->_categoryService->getAllCategory();
+    
 
         View::bladeRenderTemplate('admin/products/products', compact('categories'));
     }
@@ -53,14 +49,7 @@ class Admin extends \Core\Controller
     {
         $categories = $this->_categoryService->createCategory();
 
-        if (Request::hasData('post')) {
 
-            $request = Request::getData('post');
-        
-
-            
-        }
-
-        var_dump($request->category);
+        var_dump($categories);
     }
 }
