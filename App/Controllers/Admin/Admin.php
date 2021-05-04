@@ -9,11 +9,12 @@ use \Core\SessionHandler;
 use \App\Services\CategoryService;
 class Admin extends \Core\Controller
 {
+    
     protected  $_categoryService;
     
     public function __construct()
     {
-
+        
         $this->_categoryService =  new CategoryService;
     }
 
@@ -50,17 +51,16 @@ class Admin extends \Core\Controller
 
     public function createCategory()
     {
+        $categories = $this->_categoryService->createCategory();
+
         if (Request::hasData('post')) {
 
             $request = Request::getData('post');
-            Category::create([
-                'name' => $request->category,
+        
 
-            ]);
+            
         }
-        echo '<pre>';
 
         var_dump($request->category);
-        echo '</pre>';
     }
 }

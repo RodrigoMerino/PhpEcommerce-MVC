@@ -11,6 +11,7 @@ class SessionHandler
     //agregar session
     public static function addSession(string $name, string $value)
     {
+
         if ($name != '' && !empty($name && $value != '' && !empty($value))) {
             return $_SESSION[$name] = $value;
         }
@@ -26,6 +27,7 @@ class SessionHandler
     //revisar si la session existe
     public static function existSession(string $name)
     {
+
         if ($name != '' && !empty($name)) {
             return (isset($_SESSION[$name])) ? true : false;
         }
@@ -35,6 +37,7 @@ class SessionHandler
     //unset session
     public static function removeSession(string $name)
     {
+        
         if(self::existSession($name)){
             unset ($_SESSION[$name]);
         }

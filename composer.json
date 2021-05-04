@@ -4,7 +4,8 @@
         "psr-4": {
             "Core\\": "Core/",
             "App\\": "App/"
-        }
+        },
+        "files":["App/Helpers/helpers.php"]
     },
     "require": {
         "philo/laravel-blade": "^3.1",

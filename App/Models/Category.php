@@ -14,7 +14,7 @@ class Category extends Model
 
     public $timestamps = true;
 
-    protected  $fillable= ['name', 'short-name'];
+    protected  $fillable= ['name', 'format_name'];
     protected  $dates = ['deleted_at'];
 
 

@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Category;
+use PDOException;
 
 class CategoryRepository
 {
@@ -15,7 +16,20 @@ class CategoryRepository
 
     public function getAllCategory()
     {
-           return $this->_category::all();
+        try {
+            return $this->_category::all();
+            
+        } catch (PDOException $Ex) {
+            //throw $th;
+        }
         
+    }
+    public function createCategory($request)
+    {
+        Category::create([
+            'name' => $request->category,
+            'format_name' => formattedString($request->category) ,
+
+        ]);
     }
 }
