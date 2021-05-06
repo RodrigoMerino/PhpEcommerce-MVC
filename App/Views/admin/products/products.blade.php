@@ -51,9 +51,13 @@
                     @foreach ($categories as $item)
                         <tr>
 
-                            <td>{{ $item->name }}</td>
+                            <td>{{ $item['name']}}</td>
+                            <td>{{ $item['format_name'] }}</td>
+                            <td>{{ $item['added'] }}</td> 
+                            
+                            {{-- <td>{{ $item->name }}</td>
                             <td>{{ $item->format_name }}</td>
-                            <td>{{ $item->created_at->toFormattedDateString() }}</td>
+                            <td>{{ $item->created_at->toFormattedDateString() }}</td> --}}
                             <td>
                                 <a href=""> <i class="fas fa-edit    "></i></a>
                                 <a href=""> <i class="fa fa-times" aria-hidden="true"></i></a>
@@ -68,5 +72,7 @@
 
             </tbody>
         </table>
+        
+<h3> {!!$links!!}</h3>
     </div>
 @endsection

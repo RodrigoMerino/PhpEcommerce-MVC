@@ -17,7 +17,7 @@ class CategoryRepository
     public function getAllCategory()
     {
         try {
-            return $this->_category::all();
+            return $this->_category::all()->count();
             
         } catch (PDOException $Ex) {
             //throw $th;

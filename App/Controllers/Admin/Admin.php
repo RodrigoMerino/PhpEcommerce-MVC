@@ -7,14 +7,16 @@ use App\Models\Category;
 use \Core\View;
 use \Core\SessionHandler;
 use \App\Services\CategoryService;
+
 class Admin extends \Core\Controller
 {
-    
+
     protected  $_categoryService;
-    
+    public $table = 'categories';
+
     public function __construct()
     {
-        
+
         $this->_categoryService =  new CategoryService;
     }
 
@@ -37,12 +39,14 @@ class Admin extends \Core\Controller
 
     public function categoriesAction()
     {
+        $total = $this->_categoryService->getAllCategory();
 
+        $object = new Category;
+        list($categories,$links) = pagination(2,$total, $this->table,$object);
         //$categories = Category::all();
-        $categories = $this->_categoryService->getAllCategory();
-    
 
-        View::bladeRenderTemplate('admin/products/products', compact('categories'));
+
+        View::bladeRenderTemplate('admin/products/products', compact('categories','links'));
     }
 
     public function createCategory()
