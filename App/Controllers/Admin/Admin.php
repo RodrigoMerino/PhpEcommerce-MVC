@@ -42,7 +42,7 @@ class Admin extends \Core\Controller
         $total = $this->_categoryService->getAllCategory();
 
         $object = new Category;
-        list($categories,$links) = pagination(2,$total, $this->table,$object);
+        list($categories,$links) = pagination(5,$total, $this->table,$object);
         //$categories = Category::all();
 
 
@@ -51,9 +51,12 @@ class Admin extends \Core\Controller
 
     public function createCategory()
     {
-        $categories = $this->_categoryService->createCategory();
+       $this->_categoryService->createCategory();
+        $total = $this->_categoryService->getAllCategory();
 
+        $object = new Category;
+        list($categories,$links) = pagination(5,$total, $this->table,$object);
 
-        var_dump($categories);
+        View::bladeRenderTemplate('admin/products/categoryTable', compact('categories','links'));
     }
 }

@@ -5,7 +5,7 @@
             "Core\\": "Core/",
             "App\\": "App/"
         },
-        "files":["App/Helpers/helpers.php"]
+        "files":["App/Helpers/helpers.php", "App/Ajax/ajax.js"]
     },
     "require": {
         "philo/laravel-blade": "^3.1",

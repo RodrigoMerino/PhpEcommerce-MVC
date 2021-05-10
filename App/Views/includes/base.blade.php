@@ -71,32 +71,25 @@
       </li>
     </ul>
   </div>
-<!--/.Navbar -->
       </nav>
 
       <div class="container-fluid">
       @yield('content')
     </div>
-    <!-- /#page-content-wrapper -->
 
   </div>
-  <!-- /#wrapper -->
-
-  <!-- Bootstrap core JavaScript -->
  
 
-  <!-- Menu Toggle Script -->
  
 
-     <!-- /#wrapper -->
 </body>
 </html>
 <!-- JQuery -->
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+<script src="../../Ajax/ajax.js"></script>
 </script>
-{{-- <script src="../../js/build.js"></script> --}}
+{{-- <script src="../../js/build/build.js"></script>  --}}
 <script>
   $("#menu-toggle").click(function(e) {
     e.preventDefault();

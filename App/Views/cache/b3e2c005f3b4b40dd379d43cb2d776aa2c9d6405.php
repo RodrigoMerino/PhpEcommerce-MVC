@@ -13,7 +13,7 @@
 
 
 
-    <form action="/admin/admin/createcategory" method="post">
+    <form action="" method="post" id='userForm'>
         <div class="form-row align-items-center">
             <div class="col col-md-3  my-1">
                 <input type="text" class="form-control" placeholder="Buscar categoria">
@@ -27,51 +27,13 @@
 
             </div>
             <div class="col-auto md-1">
-                <button type="submit" class="btn btn-primary btn-md mt-1 blue-gradient">Crear</button>
+                <button  class="btn btn-primary btn-md mt-1 blue-gradient" id="ajaxcall">Crear</button>
             </div>
 
         </div>
     </form>
 
-
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Slug name</th>
-                    <th scope="col">Created at</th>
-                    <th scope="col">Actions</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <?php if(count($categories)): ?>
-                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <tr>
-
-                            <td><?php echo e($item['name']); ?></td>
-                            <td><?php echo e($item['format_name']); ?></td>
-                            <td><?php echo e($item['added']); ?></td> 
-                            
-                            
-                            <td>
-                                <a href=""> <i class="fas fa-edit    "></i></a>
-                                <a href=""> <i class="fa fa-times" aria-hidden="true"></i></a>
-                            </td>
-                        <tr>
-
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                <?php else: ?>
-                    <p>no products found</p>
-
-                <?php endif; ?>
-
-            </tbody>
-        </table>
-        
-<h3> <?php echo $links; ?></h3>
-    </div>
+<?php echo $__env->make('admin.products.categoryTable', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>;
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('includes.base', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
