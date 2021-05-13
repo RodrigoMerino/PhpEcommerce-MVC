@@ -23,6 +23,7 @@ class Admin extends \Core\Controller
 
     public function indexAction()
     {
+
         SessionHandler::addSession('admin', 'some testing sessionsaaa');
 
         if (SessionHandler::existSession('admin')) {
@@ -40,10 +41,9 @@ class Admin extends \Core\Controller
     public function categoriesAction()
     {
         $total = $this->_categoryService->getAllCategory();
-
         $object = new Category;
+
         list($categories,$links) = pagination(5,$total, $this->table,$object);
-        //$categories = Category::all();
 
 
         View::bladeRenderTemplate('admin/products/products', compact('categories','links'));
@@ -51,6 +51,7 @@ class Admin extends \Core\Controller
 
     public function createCategory()
     {
+        
        $this->_categoryService->createCategory();
         $total = $this->_categoryService->getAllCategory();
 

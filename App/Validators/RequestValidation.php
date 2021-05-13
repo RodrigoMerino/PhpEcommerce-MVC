@@ -8,7 +8,7 @@ class RequestValidation
 {
  private static $error =[];
  private static $error_msg = [
-    'uniqueValidation' =>'El :attribute  ya existe, por favot intente con otro.',
+    'uniqueValidation' =>'El :attribute  ya existe, por favor intente con otro.',
     'fieldRequired' =>'El :attribute es requerido',
     'minLength' =>'El :attribute  debe tener un minimo de :policy caracteres',
     'charactersAllowValidation' =>'EL :attribute campo no puede contener numeros',
