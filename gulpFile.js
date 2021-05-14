@@ -22,14 +22,15 @@ mix.scripts(
     //jquery
     './node_modules/jquery/dist/jquery.min.js',
     //MDbootstrap
-    './node_modules/mdb-ui-kit/js/mdb.min.js',
+    './node_modules/mdbootstrap/js/mdb.min.js',
 
     //boostrap
     './node_modules/bootstrap/dist/js/bootstrap.min.js',
 
     //slick coruousel
     './node_modules/slick-carousel/slick/slick.min.js',
-
+    //popper
+    "./node_modules/popper.js/dist/popper.min.js",
     
     //compile all
     'js/*.js',

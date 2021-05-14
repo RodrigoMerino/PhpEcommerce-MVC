@@ -23,7 +23,7 @@
                             <td>{{ $item->format_name }}</td>
                             <td>{{ $item->created_at->toFormattedDateString() }}</td> --}}
                             <td>
-                                <a href=""> <i class="fas fa-edit    "></i></a>
+                                <a href="" data-toggle="modal" data-target="#basicExampleModal" > <i class="fas fa-edit    "></i></a>
                                 <a href=""> <i class="fa fa-times" aria-hidden="true"></i></a>
                             </td>
                         <tr>
@@ -39,3 +39,25 @@
         
 <h3> {!!$links!!}</h3>
     </div>
+
+<!-- Modal -->
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal" >Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

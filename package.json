@@ -13,11 +13,11 @@
     "laravel-elixir": "^6.0.0-18"
   },
   "dependencies": {
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
     "mdb-ui-kit": "^3.4.0",
-    "mdbootstrap": "^4.19.2",
-    "popper.js": "^1.16.1",
+    "mdbootstrap": "^4.19.1",
+    "popper.js": "^1.14.4",
     "slick-carousel": "^1.8.1"
   }
 }

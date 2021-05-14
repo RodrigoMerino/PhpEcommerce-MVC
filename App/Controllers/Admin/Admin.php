@@ -46,7 +46,7 @@ class Admin extends \Core\Controller
         list($categories,$links) = pagination(5,$total, $this->table,$object);
 
 
-        View::bladeRenderTemplate('admin/products/products', compact('categories','links'));
+        View::bladeRenderTemplate('admin/products/categories', compact('categories','links'));
     }
 
     public function createCategory()
